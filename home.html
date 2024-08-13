@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="iofrm-style.css">
+    <link rel="stylesheet" type="text/css" href="iofrm-theme33.css">
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+        .welcome {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .menu {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+        .menu a {
+            padding: 10px 20px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #007bff;
+            font-size: 18px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .menu a:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .logout-button {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="welcome">
+            <p id="welcomeMessage">Logged in as <span id="userName"></span></p>
+        </div>
+        <div class="logout-button">
+            <button id="logoutButton" class="btn btn-outline-danger">Logout</button>
+        </div>
+        <h1>Welcome to Employee Management System</h1>
+        <div class="menu">
+            <a href="employee.html">View Employee Details</a>
+            <a href="#">Salary Page</a>
+            <a href="#">Attendance</a>
+            <a href="#">Leave Applications</a>
+            <!-- Add more menu items as needed -->
+        </div>
+    </div>
+    <script>
+        const username = localStorage.getItem('username');
+        if (username) {
+            document.getElementById('userName').textContent = username;
+        } else {
+            alert('No username found. Please log in again.');
+            window.location.href = "login27.html";
+        }
+
+        document.getElementById('logoutButton').addEventListener('click', function() {
+            localStorage.removeItem('username');
+            window.location.href = "login27.html";
+        });
+    </script>
+</body>
+</html>
